@@ -48,8 +48,9 @@ type Config struct {
 	// Hardware acceleration configuration
 
 	// VA-API
-	VAAPI         bool `json:"vaapi"`
-	VAAPILowPower bool `json:"vaapiLowPower"`
+	VAAPI         bool   `json:"vaapi"`
+	VAAPILowPower bool   `json:"vaapiLowPower"`
+	VAAPIDevice   string `json:"vaapiDevice"`
 
 	// NVENC
 	NVENC           bool   `json:"nvenc"`

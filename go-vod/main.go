@@ -25,14 +25,18 @@ func main() {
 	}
 
 	// Parse arguments
-	for _, arg := range os.Args[1:] {
-		if arg == "-version-monitor" {
+	args := os.Args[1:]
+	for i := 0; i < len(args); i++ {
+		if args[i] == "-version-monitor" {
 			c.VersionMonitor = true
-		} else if arg == "-version" {
+		} else if args[i] == "-version" {
 			fmt.Print("go-vod " + VERSION)
 			return
+		} else if args[i] == "-vaapi-device" {
+			i++
+			c.VAAPIDevice = args[i]
 		} else {
-			c.FromFile(arg) // config file
+			c.FromFile(args[i]) // config file
 		}
 	}
 
